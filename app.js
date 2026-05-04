@@ -41,13 +41,12 @@ function showApp() {
 }
 
 window.addEventListener('message', e => {
-  if (e.data === 'splash-ready') splashFrame.style.opacity = '1';
-  if (e.data === 'splash-done')  showApp();
+  if (e.data === 'splash-done') showApp();
 });
 setTimeout(showApp, 10000); // hard fallback
 
 function scaleSplashFrame() {
-  const scale = window.innerWidth < 600 ? (window.innerWidth * 0.75) / 500 : 1;
+  const scale = window.innerWidth < 600 ? (window.innerWidth * 0.9) / 500 : 1;
   splashFrame.style.transform = scale < 1 ? `scale(${scale})` : '';
 }
 scaleSplashFrame();

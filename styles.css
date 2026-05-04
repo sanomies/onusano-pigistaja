@@ -34,8 +34,6 @@ body {
   width: 500px;
   height: 500px;
   border: none;
-  opacity: 0;
-  transition: opacity .25s ease;
 }
 
 /* ── App card ───────────────────────────────────────── */
