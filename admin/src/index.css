@@ -1,0 +1,17 @@
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cpDrift {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 1; }
+  50%  { transform: translateY(-30px) translateX(14px) rotate(150deg); }
+  92%  { opacity: 1; }
+  100% { transform: translateY(-58px) translateX(0) rotate(300deg); opacity: 0; }
+}
+
+@keyframes trophyFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}

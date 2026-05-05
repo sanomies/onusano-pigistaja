@@ -1,0 +1,27 @@
+{
+  "name": "banneripigistaja-admin",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "cp src/index.template.html index.html && vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.15.0",
+    "@mantine/hooks": "^7.15.0",
+    "@mantine/notifications": "^7.15.0",
+    "@supabase/supabase-js": "^2.49.0",
+    "@mantine/charts": "^7.15.0",
+    "react": "^18.3.1",
+    "recharts": "^2.15.0",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "vite": "^6.3.5"
+  }
+}

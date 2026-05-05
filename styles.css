@@ -205,7 +205,7 @@ body {
   z-index: 50;
 }
 
-/* ── Auth button ────────────────────────────────────── */
+/* ── Auth button (Mantine ActionIcon, outline) ───────── */
 
 #auth-btn {
   position: fixed;
@@ -214,7 +214,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid var(--blue);
+  border: 1px solid rgba(18, 28, 87, .4);
   background: #fff;
   cursor: pointer;
   display: flex;
@@ -222,41 +222,40 @@ body {
   justify-content: center;
   z-index: 10;
   padding: 0;
-  transition: background .2s, transform .15s;
+  transition: background .15s, border-color .15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.06);
 }
+#auth-btn:hover { background: rgba(18, 28, 87, .06); }
+#auth-btn svg   { width: 20px; height: 20px; stroke: var(--blue); }
 
-#auth-btn:hover { background: var(--blue); transform: scale(1.08); }
-#auth-btn svg   { width: 20px; height: 20px; stroke: var(--blue); transition: stroke .2s; }
-#auth-btn:hover svg { stroke: #fff; }
-
-#auth-btn.logged-in             { background: var(--blue); }
+#auth-btn.logged-in             { background: var(--blue); border-color: var(--blue); }
 #auth-btn.logged-in svg         { stroke: #fff; }
 #auth-btn.logged-in:hover       { background: var(--orange); border-color: var(--orange); }
-#auth-btn.logged-in:hover svg   { stroke: var(--blue); }
+#auth-btn.logged-in:hover svg   { stroke: #fff; }
 
-/* ── Auth dropdown (logged-in) ──────────────────────── */
+/* ── Auth dropdown (Mantine Menu) ───────────────────── */
 
 #auth-dropdown {
   position: fixed;
   top: 72px;
   right: 20px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(18, 28, 87, .14);
-  border: 1.5px solid rgba(18, 28, 87, .09);
-  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 10px 15px -5px rgba(0,0,0,.05), 0 7px 7px -5px rgba(0,0,0,.04);
+  border: 1px solid rgba(18, 28, 87, .1);
+  padding: 4px;
   width: 210px;
   z-index: 50;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
 }
 
 #dropdown-email {
   font-size: 12px;
   color: var(--blue);
   opacity: .55;
-  padding: 4px 10px 6px;
+  padding: 6px 12px 8px;
   word-break: break-all;
   border-bottom: 1px solid rgba(18, 28, 87, .08);
   margin-bottom: 2px;
@@ -264,39 +263,40 @@ body {
 
 #dropdown-admin {
   display: block;
-  padding: 9px 14px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
   font-family: inherit;
   color: var(--blue);
   background: none;
   text-decoration: none;
-  transition: background .15s;
+  transition: background .1s;
 }
-#dropdown-admin:hover { background: rgba(18, 28, 87, .07); }
+#dropdown-admin:hover { background: rgba(18, 28, 87, .06); }
 
 #dropdown-logout {
-  padding: 9px 14px;
-  border-radius: 9999px;
+  padding: 8px 12px;
+  border-radius: 4px;
   border: none;
   background: none;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   font-family: inherit;
-  color: #c0392b;
+  color: #e03131;
   cursor: pointer;
   text-align: left;
-  transition: background .15s;
+  transition: background .1s;
+  width: 100%;
 }
-#dropdown-logout:hover { background: rgba(192, 57, 43, .08); }
+#dropdown-logout:hover { background: rgba(224, 49, 49, .07); }
 
-/* ── Auth modal ─────────────────────────────────────── */
+/* ── Auth modal (Mantine Modal) ─────────────────────── */
 
 #auth-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(18, 28, 87, .35);
+  background: rgba(0, 0, 0, .55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,56 +305,72 @@ body {
 
 #auth-modal {
   background: #fff;
-  border-radius: 16px;
-  padding: 32px;
-  width: 320px;
+  border-radius: 12px;
+  padding: 24px;
+  width: 340px;
   position: relative;
-  box-shadow: 0 8px 40px rgba(0,0,0,.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 10px 15px -5px rgba(0,0,0,.05), 0 7px 7px -5px rgba(0,0,0,.04);
 }
 
+/* Mantine Modal close button (ActionIcon subtle) */
 #auth-close {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   background: none;
   border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--blue);
-  line-height: 1;
-  padding: 4px 6px;
-  opacity: .5;
-  transition: opacity .15s;
-}
-#auth-close:hover { opacity: 1; }
-
-.auth-heading {
   font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: rgba(18, 28, 87, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .1s, color .1s;
+}
+#auth-close:hover { background: rgba(18, 28, 87, .06); color: var(--blue); }
+
+/* Mantine Title */
+.auth-heading {
+  font-size: 20px;
   font-weight: 700;
   color: var(--blue);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  line-height: 1.3;
 }
 
+/* Mantine SegmentedControl */
 #auth-tabs {
   display: flex;
-  gap: 8px;
+  gap: 0;
   margin-bottom: 20px;
+  background: rgba(18, 28, 87, .06);
+  border-radius: 9999px;
+  padding: 3px;
 }
 
 .auth-tab {
   flex: 1;
-  padding: 8px;
-  border: 2px solid var(--blue);
+  padding: 7px 12px;
+  border: none;
   border-radius: 9999px;
-  background: none;
+  background: transparent;
   font-size: 13px;
   font-weight: 600;
+  font-family: inherit;
   color: var(--blue);
   cursor: pointer;
-  transition: background .15s, color .15s;
+  transition: background .15s, box-shadow .15s;
 }
-.auth-tab.active { background: var(--blue); color: #fff; }
+.auth-tab.active {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
 
+/* Mantine TextInput / PasswordInput */
 #auth-form {
   display: flex;
   flex-direction: column;
@@ -362,39 +378,45 @@ body {
 }
 
 #auth-form input {
-  padding: 10px 14px;
-  border: 2px solid #e0e0e0;
+  height: 38px;
+  padding: 0 16px;
+  border: 1px solid #ced4da;
   border-radius: 9999px;
   font-size: 14px;
   font-family: inherit;
   outline: none;
   transition: border-color .15s;
+  width: 100%;
 }
 #auth-form input:focus { border-color: var(--blue); }
 
+/* Mantine Button (color="orange", filled) */
 #auth-submit {
-  padding: 11px;
+  height: 38px;
+  padding: 0 20px;
   background: var(--orange);
-  border: 2px solid var(--blue);
+  border: none;
   border-radius: 9999px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   font-family: inherit;
-  color: var(--blue);
+  color: #fff;
   cursor: pointer;
-  transition: background .15s;
+  transition: background .1s;
   margin-top: 4px;
+  width: 100%;
 }
 #auth-submit:hover { background: var(--orange-dark); }
 
+/* Mantine Text (error, size="sm") */
 #auth-message {
-  margin-top: 12px;
+  margin-top: 8px;
   font-size: 13px;
-  text-align: center;
   color: var(--blue);
   min-height: 18px;
+  opacity: .7;
 }
-#auth-message.error { color: #c0392b; }
+#auth-message.error { color: #e03131; opacity: 1; }
 
 /* ── Mobile ─────────────────────────────────────────── */
 
@@ -419,15 +441,16 @@ body {
 
 #auth-logout {
   width: 100%;
-  padding: 11px;
+  height: 38px;
+  padding: 0 20px;
   background: none;
-  border: 2px solid var(--blue);
+  border: 1px solid rgba(18, 28, 87, .4);
   border-radius: 9999px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   font-family: inherit;
   color: var(--blue);
   cursor: pointer;
-  transition: background .15s, color .15s;
+  transition: background .1s;
 }
-#auth-logout:hover { background: var(--blue); color: #fff; }
+#auth-logout:hover { background: rgba(18, 28, 87, .06); }
